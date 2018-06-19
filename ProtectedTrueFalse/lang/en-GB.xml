@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<language alias="en" intName="English (UK)" localName="English (UK)" lcid="" culture="en-GB">
+  <creator>
+    <name>Jaywing</name>
+    <link>https://jaywing.com</link>
+  </creator>
+  <area alias="protectedTrueFalse">
+    <key alias="enabled"><![CDATA[Enabled]]></key>
+    <key alias="disabled"><![CDATA[Disabled]]></key>
+  
+  </area>
+</language>
