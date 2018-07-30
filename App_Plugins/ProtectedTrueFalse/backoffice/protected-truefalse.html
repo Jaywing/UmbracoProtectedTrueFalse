@@ -1,6 +1,7 @@
-﻿<div ng-controller="Jaywing.ProtectedTrueFalse.Controller">
-    <input type="checkbox" ng-model="renderModel.value" id="{{model.alias}}" ng-if="!readonly" />
-    
+﻿<div class="umb-editor umb-boolean" ng-controller="Jaywing.ProtectedTrueFalse.Controller">
+
+    <umb-toggle checked="renderModel.value" on-click="toggle()" id="{{model.alias}}" ng-if="!readonly"></umb-toggle>
+
     <div ng-if="readonly">
         <localize key="protectedTrueFalse_enabled" ng-if="model.value == 1">True</localize>
         <localize key="protectedTrueFalse_disabled" ng-if="model.value != 1">False</localize>

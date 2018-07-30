@@ -13,7 +13,8 @@ namespace Jaywing.Web.App_Plugins.ProtectedTrueFalse
     public class ProtectedTrueFalseApiController : UmbracoAuthorizedApiController
     {     
         private readonly UmbracoContext _umbracoContext;
-        private readonly IUserService _userService;   
+        private readonly IUserService _userService;       
+
         private readonly IUserGroup _administratorUserGroup;         
          
         public ProtectedTrueFalseApiController(UmbracoContext umbracoContext, IUserService userService)

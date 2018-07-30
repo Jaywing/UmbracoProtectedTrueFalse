@@ -3,15 +3,9 @@
 
     function ProtectedTrueFalseController($scope, JaywingProtectedTrueFalseResources) {
 
-        checkIfAuthorised();
-
-        if ($scope.readonly)
-            setupViewModel();
-
         function checkIfAuthorised() {
             JaywingProtectedTrueFalseResources.IsAuthorised()
                 .then(function (response) {
-                    console.log("protectedTrueFalse: " + response);
                     $scope.readonly = (response == 'true') ? false : true;
                     return;
                 });
@@ -32,13 +26,30 @@
             }
         }
 
-        $scope.$watch("renderModel.value", function (newVal) {
-            $scope.model.value = newVal === true ? "1" : "0";
-        });
-             
-        $scope.model.onValueChanged = function (newVal, oldVal) {          
+        $scope.model.onValueChanged = function (newVal, oldVal) {
             setupViewModel();
         };
+
+        $scope.toggle = function () {
+            if ($scope.renderModel.value) {
+                $scope.model.value = "0";
+                setupViewModel();
+                return;
+            }
+
+            $scope.model.value = "1";
+            setupViewModel();
+        };
+
+        checkIfAuthorised();
+
+        if ($scope.readonly) {
+            setupViewModel();         
+        }
+
+        if ($scope.model && !$scope.model.value) {
+            $scope.model.value = ($scope.renderModel.value === true) ? '1' : '0';
+        }
     }
 
     angular.module('umbraco').controller("Jaywing.ProtectedTrueFalse.Controller", ProtectedTrueFalseController);
